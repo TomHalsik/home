@@ -10,13 +10,11 @@ const dbConfig = defineConfig({
       connection: {
         connectionString: env.get('DB_URL'),
         ssl: {
-          rejectUnauthorized: false,
+          rejectUnauthorized: true,
           ca: fs.readFileSync('./root.crt').toString(),
         },
       },
-      migrations: {
-        tableName: 'adonis_schema',
-      },
+      migrations: {},
     },
   },
 })
